@@ -191,11 +191,20 @@ def mkPlotPC2(df, substance):
   plt.ylim(0, 1)
   plt.yticks([])
   
-   # Annotate per-axis scales
+  # Annotate per-axis scales
+  tick_length = 0.03  # how long the ticks should be
   for i, col in enumerate(value_cols):
+    # Draw the main vertical axis line
+    plt.plot([i, i], [0, 1], color='black', linestyle='--', linewidth=1, alpha=0.5)
+    
+    # Draw ticks at normalized positions (e.g., bottom, middle, top)
+    num_ticks = 6
+    for t in np.linspace(0, 1, num_ticks):
+        plt.plot([i - tick_length/2, i + tick_length/2], [t, t], color='black', linewidth=1)
+        
     lo, hi = y_limits[col]
-    plt.text(i, -0.015, f"{lo}", ha='center', va='top', fontsize=14)
-    plt.text(i, 1.02, f"{hi}", ha='center', va='bottom', fontsize=14)
+    plt.text(i, -0.015, f"{lo}", ha='center', va='top', fontsize=15, fontweight='bold')
+    plt.text(i, 1.02, f"{hi}", ha='center', va='bottom', fontsize=15, fontweight='bold')
   
   legend_elements = [
     Line2D([0], [0], color='#377eb8', lw=2, label='NNR surrog. Models'),
@@ -294,16 +303,28 @@ def mkPlotPC3(df, prop, saveOrShow, substance):
   for xi in x:
     plt.axvline(x=xi, color='gray', linestyle='--', linewidth=1, alpha=0.5)
     
+    
   #plt.xticks(x, value_cols)
   plt.xticks(x, xlbls, fontsize=15, fontweight='bold')
   plt.tick_params(axis='x', pad=15)
   plt.ylim(0, 1)
   plt.yticks([])
+  
   # Annotate per-axis scales
+  tick_length = 0.03  # how long the ticks should be
   for i, col in enumerate(value_cols):
+    # Draw the main vertical axis line
+    plt.plot([i, i], [0, 1], color='black', linestyle='--', linewidth=1, alpha=0.5)
+    
+    # Draw ticks at normalized positions (e.g., bottom, middle, top)
+    num_ticks = 6
+    for t in np.linspace(0, 1, num_ticks):
+        plt.plot([i - tick_length/2, i + tick_length/2], [t, t], color='black', linewidth=1)
+        
     lo, hi = y_limits[col]
-    plt.text(i, -0.015, f"{lo}", ha='center', va='top', fontsize=14)
-    plt.text(i, 1.02, f"{hi}", ha='center', va='bottom', fontsize=14)
+    plt.text(i, -0.015, f"{lo}", ha='center', va='top', fontsize=15, fontweight='bold')
+    plt.text(i, 1.02, f"{hi}", ha='center', va='bottom', fontsize=15, fontweight='bold')
+    
 
   plt.legend(handles=legend_elements, loc='upper right', fontsize=12)
   plt.ylabel("MAPE [%]", fontsize=15, fontweight='bold')
@@ -357,12 +378,12 @@ def mkPlotScatter1(df, saveOrShow, substance):
     plt.scatter(thisX, thisY, color=colors[k], label=thisLBLs[k])
 
   
-  plt.xlabel(xlbl, fontsize=15, fontweight='bold')
-  plt.ylabel(ylbl, fontsize=15, fontweight='bold')
+  plt.xlabel(xlbl, fontsize=20, fontweight='bold')
+  plt.ylabel(ylbl, fontsize=20, fontweight='bold')
   plt.xlim(xlims)
   plt.ylim(ylims)
-  plt.xticks(fontsize=13)
-  plt.yticks(fontsize=13)
+  plt.xticks(fontsize=15)
+  plt.yticks(fontsize=15)
   plt.legend()
   plt.tight_layout()
   
@@ -411,12 +432,12 @@ def mkPlotScatter2(df, saveOrShow, substance):
     plt.scatter(thisX, thisY, color=colors[k], label=thisLBLs[k])
 
   
-  plt.xlabel(xlbl, fontsize=15, fontweight='bold')
-  plt.ylabel(ylbl, fontsize=15, fontweight='bold')
+  plt.xlabel(xlbl, fontsize=20, fontweight='bold')
+  plt.ylabel(ylbl, fontsize=20, fontweight='bold')
   plt.xlim(xlims)
   plt.ylim(ylims)
-  plt.xticks(fontsize=13)
-  plt.yticks(fontsize=13)
+  plt.xticks(fontsize=15)
+  plt.yticks(fontsize=15)
   plt.legend()
   plt.tight_layout()
   
@@ -540,14 +561,14 @@ if __name__ == "__main__":
   #print(f'{dfSummary2Bro}')
   
  
-  #plt = mkPlotPC3(dfSummaryBoth, 'density', saveOrShow, 'both')
-  #plt = mkPlotPC3(dfSummaryBoth, 'RCE', saveOrShow, 'both')
-  #plt = mkPlotPC2(dfSummaryBoth, 'both')
+  plt = mkPlotPC3(dfSummaryBoth, 'density', saveOrShow, 'both')
+  plt = mkPlotPC3(dfSummaryBoth, 'RCE', saveOrShow, 'both')
+  plt = mkPlotPC2(dfSummaryBoth, 'both')
   
-  plt = mkPlotScatter1(dfSummary1Bro, saveOrShow, '1-bromobutane')
-  plt = mkPlotScatter2(dfSummary1Bro, saveOrShow, '1-bromobutane')
-  plt = mkPlotScatter1(dfSummary2Bro, saveOrShow, '2-bromobutane')
-  plt = mkPlotScatter2(dfSummary2Bro, saveOrShow, '2-bromobutane')
+  #plt = mkPlotScatter1(dfSummary1Bro, saveOrShow, '1-bromobutane')
+  #plt = mkPlotScatter2(dfSummary1Bro, saveOrShow, '1-bromobutane')
+  #plt = mkPlotScatter1(dfSummary2Bro, saveOrShow, '2-bromobutane')
+  #plt = mkPlotScatter2(dfSummary2Bro, saveOrShow, '2-bromobutane')
   if saveOrShow == 'show':
     plt.show()
         

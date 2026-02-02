@@ -94,11 +94,20 @@ def mkPlotPC2(df, substance):
   plt.ylim(0, 1)
   plt.yticks([])
   
-   # Annotate per-axis scales
+  # Annotate per-axis scales
+  tick_length = 0.03  # how long the ticks should be
   for i, col in enumerate(value_cols):
+    # Draw the main vertical axis line
+    plt.plot([i, i], [0, 1], color='black', linestyle='--', linewidth=1, alpha=0.5)
+    
+    # Draw ticks at normalized positions (e.g., bottom, middle, top)
+    num_ticks = 6
+    for t in np.linspace(0, 1, num_ticks):
+        plt.plot([i - tick_length/2, i + tick_length/2], [t, t], color='black', linewidth=1)
+        
     lo, hi = y_limits[col]
-    plt.text(i, -0.015, f"{lo}", ha='center', va='top', fontsize=14)
-    plt.text(i, 1.02, f"{hi}", ha='center', va='bottom', fontsize=14)
+    plt.text(i, -0.015, f"{lo}", ha='center', va='top', fontsize=15, fontweight='bold')
+    plt.text(i, 1.02, f"{hi}", ha='center', va='bottom', fontsize=15, fontweight='bold')
   
   legend_elements = [
     Line2D([0], [0], color='#377eb8', lw=2, label='NNR surrog. Models'),
