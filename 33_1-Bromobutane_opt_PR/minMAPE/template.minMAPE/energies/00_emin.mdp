@@ -1,0 +1,11 @@
+; emin.mdp - used as input into grompp to generate em.tpr
+integrator = steep    ; Algorithm (steep = steepest descent minimization)
+emtol      = 0.10     ; Stop minimization when the maximum force < 1000.0 kJ/mol/nm
+emstep     = 0.01     ; Energy step size
+nsteps     = 50000    ; Maximum number of (minimization) steps to perform
+
+; Output control
+nstxout = 1                     ; save coordinates every step
+nstvout = 1                     ; save velocities every step
+nstenergy = 1                   ; save energies every step
+nstlog = 1                      ; update log file every step
