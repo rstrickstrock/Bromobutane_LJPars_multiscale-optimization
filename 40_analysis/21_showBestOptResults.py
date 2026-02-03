@@ -384,7 +384,8 @@ def mkPlotScatter1(df, saveOrShow, substance):
   plt.ylim(ylims)
   plt.xticks(fontsize=15)
   plt.yticks(fontsize=15)
-  plt.legend()
+  plt.grid(True, linestyle=':', alpha=0.6)
+  plt.legend(loc='best', fontsize=16)
   plt.tight_layout()
   
   if saveOrShow == 'save':
@@ -438,7 +439,8 @@ def mkPlotScatter2(df, saveOrShow, substance):
   plt.ylim(ylims)
   plt.xticks(fontsize=15)
   plt.yticks(fontsize=15)
-  plt.legend()
+  plt.grid(True, linestyle=':', alpha=0.6)
+  plt.legend(loc='best', fontsize=16)
   plt.tight_layout()
   
   if saveOrShow == 'save':
@@ -561,14 +563,14 @@ if __name__ == "__main__":
   #print(f'{dfSummary2Bro}')
   
  
-  plt = mkPlotPC3(dfSummaryBoth, 'density', saveOrShow, 'both')
-  plt = mkPlotPC3(dfSummaryBoth, 'RCE', saveOrShow, 'both')
-  plt = mkPlotPC2(dfSummaryBoth, 'both')
+  #plt = mkPlotPC3(dfSummaryBoth, 'density', saveOrShow, 'both')
+  #plt = mkPlotPC3(dfSummaryBoth, 'RCE', saveOrShow, 'both')
+  #plt = mkPlotPC2(dfSummaryBoth, 'both')
   
-  #plt = mkPlotScatter1(dfSummary1Bro, saveOrShow, '1-bromobutane')
-  #plt = mkPlotScatter2(dfSummary1Bro, saveOrShow, '1-bromobutane')
-  #plt = mkPlotScatter1(dfSummary2Bro, saveOrShow, '2-bromobutane')
-  #plt = mkPlotScatter2(dfSummary2Bro, saveOrShow, '2-bromobutane')
+  plt = mkPlotScatter1(dfSummary1Bro, saveOrShow, '1-bromobutane')
+  plt = mkPlotScatter2(dfSummary1Bro, saveOrShow, '1-bromobutane')
+  plt = mkPlotScatter1(dfSummary2Bro, saveOrShow, '2-bromobutane')
+  plt = mkPlotScatter2(dfSummary2Bro, saveOrShow, '2-bromobutane')
   if saveOrShow == 'show':
     plt.show()
         

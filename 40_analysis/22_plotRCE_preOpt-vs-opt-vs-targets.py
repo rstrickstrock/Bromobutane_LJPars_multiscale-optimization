@@ -134,7 +134,7 @@ def mkScatterPlot(df, RCEtargets, preOptRCE, sort, substance):
   plt.legend()
   plt.tight_layout()
   if saveOrShow == 'save':
-    plt.savefig(f'RCE_targets-vs-preOpt-vs-Opt-{substance}_{sort}_1BB.png', dpi=100)
+    plt.savefig(f'RCE_targets-vs-preOpt-vs-Opt-{substance}_{sort}_1BB.png', dpi=200)
   
   plt.figure(figsize=(5, 5))
   plt.plot(srtTargets2BB, srtTargets2BB, '-', color='#000000', label="Targets")
@@ -171,7 +171,7 @@ def mkScatterPlot(df, RCEtargets, preOptRCE, sort, substance):
   plt.tight_layout()
  
   if saveOrShow == 'save':
-    plt.savefig(f'RCE_targets-vs-preOpt-vs-Opt-{substance}_{sort}_2BB.png', dpi=100)
+    plt.savefig(f'RCE_targets-vs-preOpt-vs-Opt-{substance}_{sort}_2BB.png', dpi=200)
   
   return plt
 
@@ -274,18 +274,19 @@ def mkScatterPlot1(df, RCEtargets, preOptRCE, substance):
   
     plt.plot(srtTargets1BB, srtpreOpt1BB, '-o', color='#ff0000', label="pre optimization")
   
-    plt.xlabel('target RCE [kJ/mol]', fontsize=15, fontweight='bold')
-    plt.ylabel('reproduced RCE [kJ/mol]', fontsize=15, fontweight='bold')
+    plt.xlabel('target RCE (QM) [kJ/mol]', fontsize=18, fontweight='bold')
+    plt.ylabel('reproduced RCE (MM) [kJ/mol]', fontsize=16, fontweight='bold')
     #plt.xlim([min(targets1BB.min(), preOpt1BB.min()), max(targets1BB.max(), preOpt1BB.max())])
     #plt.ylim([min(targets1BB.min(), preOpt1BB.min()), max(targets1BB.max(), preOpt1BB.max())])
-    plt.xticks(ticks=[-3.0, -2.0, -1.0, 0.0, 1.0, 2.0], labels=["-3.0", "-2.0", "-1.0", "0.0", "1.0", "2.0"],fontsize=13)
-    plt.yticks(ticks=[-3.0, -2.0, -1.0, 0.0, 1.0, 2.0], labels=["-3.0", "-2.0", "-1.0", "0.0", "1.0", "2.0"],fontsize=13)
+    plt.xticks(ticks=[-3.0, -2.0, -1.0, 0.0, 1.0, 2.0], labels=["-3.0", "-2.0", "-1.0", "0.0", "1.0", "2.0"],fontsize=15)
+    plt.yticks(ticks=[-3.0, -2.0, -1.0, 0.0, 1.0, 2.0], labels=["-3.0", "-2.0", "-1.0", "0.0", "1.0", "2.0"],fontsize=15)
     plt.xlim([minRCE1BB, maxRCE1BB])
     plt.ylim([minRCE1BB, maxRCE1BB])
+    plt.grid(True, linestyle=':', alpha=0.6)
     plt.legend()
     plt.tight_layout()
     if saveOrShow == 'save':
-      plt.savefig(f'RCE_targets-vs-preOpt-vs-Opt-{substance}_sort-by-density_1BB.png', dpi=100)
+      plt.savefig(f'RCE_targets-vs-preOpt-vs-Opt-{substance}_sort-by-density_1BB.png', dpi=200)
     
     plt.figure(figsize=(5, 5))
     plt.plot([minRCE2BB, maxRCE2BB], [minRCE2BB, maxRCE2BB], '-', color='#000000')
@@ -339,12 +340,13 @@ def mkScatterPlot1(df, RCEtargets, preOptRCE, substance):
       else:
         plt.plot(srtTargets2BB, srtThisRCEs, 'x', ls='dotted', color='#2ECC71')
     plt.plot(srtTargets2BB, srtpreOpt2BB, '-o', color='#ff0000', label="pre optimization")
-    plt.xlabel('target RCE [kJ/mol]', fontsize=15, fontweight='bold')
-    plt.ylabel('reproduced RCE [kJ/mol]', fontsize=15, fontweight='bold')
-    plt.xticks(fontsize=13)
-    plt.yticks(fontsize=13)
+    plt.xlabel('target RCE (QM) [kJ/mol]', fontsize=18, fontweight='bold')
+    plt.ylabel('reproduced RCE (MM) [kJ/mol]', fontsize=16, fontweight='bold')
+    plt.xticks(fontsize=15)
+    plt.yticks(fontsize=15)
     plt.xlim([minRCE2BB, maxRCE2BB])
     plt.ylim([minRCE2BB, maxRCE2BB])
+    plt.grid(True, linestyle=':', alpha=0.6)
     plt.legend()
     plt.tight_layout()
  
@@ -420,18 +422,19 @@ def mkScatterPlot2(df, RCEtargets, preOptRCE, substance):
         plt.plot(srtTargets1BB, srtThisRCEs, 'x', ls='dotted', color='#D55E00')
 
     plt.plot(srtTargets1BB, srtpreOpt1BB, '-o', color='#ff0000', label="pre optimization")
-    plt.xlabel('target RCE [kJ/mol]', fontsize=15, fontweight='bold')
-    plt.ylabel('reproduced RCE [kJ/mol]', fontsize=15, fontweight='bold')
+    plt.xlabel('target RCE (QM) [kJ/mol]', fontsize=18, fontweight='bold')
+    plt.ylabel('reproduced RCE (MM) [kJ/mol]', fontsize=16, fontweight='bold')
     #plt.xlim([min(targets1BB.min(), preOpt1BB.min()), max(targets1BB.max(), preOpt1BB.max())])
     #plt.ylim([min(targets1BB.min(), preOpt1BB.min()), max(targets1BB.max(), preOpt1BB.max())])
-    plt.xticks(ticks=[-2.0, -1.0, 0.0, 1.0, 2.0], labels=["-2.0", "-1.0", "0.0", "1.0", "2.0"],fontsize=13)
-    plt.yticks(ticks=[-2.0, -1.0, 0.0, 1.0, 2.0], labels=["-2.0", "-1.0", "0.0", "1.0", "2.0"],fontsize=13)
+    plt.xticks(ticks=[-2.0, -1.0, 0.0, 1.0, 2.0], labels=["-2.0", "-1.0", "0.0", "1.0", "2.0"],fontsize=15)
+    plt.yticks(ticks=[-2.0, -1.0, 0.0, 1.0, 2.0], labels=["-2.0", "-1.0", "0.0", "1.0", "2.0"],fontsize=15)
     plt.xlim([minRCE1BB, maxRCE1BB])
     plt.ylim([minRCE1BB, maxRCE1BB])
+    plt.grid(True, linestyle=':', alpha=0.6)
     plt.legend()
     plt.tight_layout()
     if saveOrShow == 'save':
-      plt.savefig(f'RCE_targets-vs-preOpt-vs-Opt-{substance}.png', dpi=100)
+      plt.savefig(f'RCE_targets-vs-preOpt-vs-Opt-{substance}.png', dpi=200)
     
   if substance == '2-bromobutane':
     DensMAPENNR = df[(df["sort"] == 'Dens2SimMAPE')]
@@ -471,17 +474,18 @@ def mkScatterPlot2(df, RCEtargets, preOptRCE, substance):
       else:
         plt.plot(srtTargets2BB, srtThisRCEs, 'x', ls='dotted', color='#1B4F72')
     plt.plot(srtTargets2BB, srtpreOpt2BB, '-o', color='#ff0000', label="pre optimization")
-    plt.xlabel('target RCE [kJ/mol]', fontsize=15, fontweight='bold')
-    plt.ylabel('reproduced RCE [kJ/mol]', fontsize=15, fontweight='bold')
-    plt.xticks(fontsize=13)
-    plt.yticks(fontsize=13)
+    plt.xlabel('target RCE (QM) [kJ/mol]', fontsize=18, fontweight='bold')
+    plt.ylabel('reproduced RCE (MM) [kJ/mol]', fontsize=16, fontweight='bold')
+    plt.xticks(fontsize=15)
+    plt.yticks(fontsize=15)
     plt.xlim([minRCE2BB, maxRCE2BB])
     plt.ylim([minRCE2BB, maxRCE2BB])
+    plt.grid(True, linestyle=':', alpha=0.6)
     plt.legend()
     plt.tight_layout()
  
     if saveOrShow == 'save':
-      plt.savefig(f'RCE_targets-vs-preOpt-vs-Opt-{substance}.png', dpi=100)
+      plt.savefig(f'RCE_targets-vs-preOpt-vs-Opt-{substance}.png', dpi=200)
   
   return plt
 
@@ -626,7 +630,7 @@ if __name__ == "__main__":
   #print(f'{dfSummary2Bro}')
   
   
-  #plt = mkScatterPlot1(dfSummaryBoth, RCEtargets, preOptRCE, 'both')
+  plt = mkScatterPlot1(dfSummaryBoth, RCEtargets, preOptRCE, 'both')
   plt = mkScatterPlot2(dfSummary1Bro, RCEtargets, preOptRCE, '1-bromobutane')
   plt = mkScatterPlot2(dfSummary2Bro, RCEtargets, preOptRCE, '2-bromobutane')
   if saveOrShow == 'show':

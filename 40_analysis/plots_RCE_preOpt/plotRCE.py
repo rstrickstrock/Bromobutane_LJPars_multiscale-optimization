@@ -87,8 +87,9 @@ if __name__ == "__main__":
   plt.xlabel('target RCE [kJ/mol]', fontsize=15, fontweight='bold')
   plt.ylabel('reproduced RCE [kJ/mol]', fontsize=15, fontweight='bold')
   ticks = [-2.0, -1.0, 0.0, 1.0, 2.0]
-  plt.xticks(ticks, ["-2.0", "-1.0", "0.0", "1.0", "2.0"], fontsize=13)
-  plt.yticks(ticks, ["-2.0", "-1.0", "0.0", "1.0", "2.0"], fontsize=13)
+  plt.xticks(ticks, ["-2.0", "-1.0", "0.0", "1.0", "2.0"], fontsize=15)
+  plt.yticks(ticks, ["-2.0", "-1.0", "0.0", "1.0", "2.0"], fontsize=15)
+  plt.grid(True, linestyle=':', alpha=0.6)
   plt.xlim([minRCE, maxRCE])
   plt.ylim([minRCE, maxRCE])
   plt.legend()
@@ -108,8 +109,9 @@ if __name__ == "__main__":
   plt.xlabel('target RCE [kJ/mol]', fontsize=15, fontweight='bold')
   plt.ylabel('reproduced RCE [kJ/mol]', fontsize=15, fontweight='bold')
   ticks = [0.0, 0.2, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4]
-  plt.xticks(ticks, fontsize=13)
-  plt.yticks(ticks, fontsize=13)
+  plt.xticks(ticks, fontsize=15)
+  plt.yticks(ticks, fontsize=15)
+  plt.grid(True, linestyle=':', alpha=0.6)
   plt.xlim([minRCE, maxRCE])
   plt.ylim([minRCE, maxRCE])
   plt.legend()

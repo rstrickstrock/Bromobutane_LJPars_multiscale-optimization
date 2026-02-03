@@ -66,11 +66,14 @@ for n in range(len(statisticsFiles)):
   plt.xlabel("Rel. Uncertainty [%]", fontweight='bold', fontsize=18)
   plt.ylabel("Occurence", fontweight='bold', fontsize=18)
   plt.xticks([0.0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0])
+  plt.ylim([0, 9])
+  plt.yticks([0, 1, 2, 3, 4, 5, 6, 7, 8])
+  
   plt.tick_params(axis="x", labelsize=15)
   plt.tick_params(axis="y", labelsize=0)
   #plt.title("Relative Error Distributions")
   plt.legend()
-  plt.grid(True)
+  plt.grid(True, linestyle=':', alpha=0.6)
   plt.tight_layout()
   if saveOrShow == "show":
     plt.show()
